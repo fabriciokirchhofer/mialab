@@ -6,6 +6,10 @@ import warnings
 
 import pymia.filtering.filter as pymia_fltr
 import SimpleITK as sitk
+import numpy as np
+import mialab
+import mialab.filtering
+import mialab.filtering.preprocessing
 
 
 class ImageNormalization(pymia_fltr.Filter):
@@ -29,8 +33,8 @@ class ImageNormalization(pymia_fltr.Filter):
         img_arr = sitk.GetArrayFromImage(image)
 
         # todo: normalize the image using numpy
-        warnings.warn('No normalization implemented. Returning unprocessed image.')
-
+        img_arr = np.linalg.norm(image)
+        
         img_out = sitk.GetImageFromArray(img_arr)
         img_out.CopyInformation(image)
 
@@ -78,8 +82,9 @@ class SkullStripping(pymia_fltr.Filter):
         mask = params.img_mask  # the brain mask
 
         # todo: remove the skull from the image by using the brain mask
-        warnings.warn('No skull-stripping implemented. Returning unprocessed image.')
-
+        skullstripper = mialab.filtering.preprocessing.SkullStripping()
+        skullstripper.execute(image=image, params=params)
+       
         return image
 
     def __str__(self):
