@@ -31,6 +31,7 @@ class ImageNormalization(pymia_fltr.Filter):
         """
 
         img_arr = sitk.GetArrayFromImage(image)
+        print("Shape of img_arr", img_arr.shape)
 
         # todo: normalize the image using numpy
         img_arr = np.linalg.norm(image)
@@ -79,11 +80,17 @@ class SkullStripping(pymia_fltr.Filter):
         Returns:
             sitk.Image: The normalized image.
         """
-        mask = params.img_mask  # the brain mask
+        mask = params.img_mask  # the brain mask       
 
         # todo: remove the skull from the image by using the brain mask
-        skullstripper = mialab.filtering.preprocessing.SkullStripping()
-        skullstripper.execute(image=image, params=params)
+        # Convert mask and image to array. Binary mask_array multiplied with image_array will return skull-stripped array
+        mask_array = sitk.GetArrayFromImage(image=mask)
+        image_array = sitk.GetArrayFromImage(image=image)        
+        
+        skullstripped_array = mask_array * image_array
+        
+        image = sitk.GetImageFromArray(skullstripped_array)
+        #sitk.Show(image)
        
         return image
 
@@ -133,17 +140,38 @@ class ImageRegistration(pymia_fltr.Filter):
 
         # todo: replace this filter by a registration. Registration can be costly, therefore, we provide you the
         # transformation, which you only need to apply to the image!
-        warnings.warn('No registration implemented. Returning unregistered image')
-
+        
         atlas = params.atlas
         transform = params.transformation
         is_ground_truth = params.is_ground_truth  # the ground truth will be handled slightly different
-
+        if is_ground_truth:
+            interpolator = sitk.sitkNearestNeighbor 
+        else:
+            interpolator = sitk.sitkLinear
+        
+        # print("atlas", type(atlas)) # SimpleITK.SimpleITK.Image
+        # print("transform", transform) # SimpleITK.SimpleITK.Transform
+        # print("is_ground_truth", type(is_ground_truth)) # bool
+               
+        registred_image = sitk.Resample(
+            image1=image,
+            referenceImage=atlas,
+            transform=transform,
+            interpolator=interpolator
+        )
+        
+        
+        """
+        parameters = pymia_fltr_reg.MultiModalRegistrationParams(fixed_image=atlas)
+        registration = pymia_fltr_reg.MultiModalRegistration()
+        image = registration.execute(image=image, params=parameters)
+        """
+        
         # note: if you are interested in registration, and want to test it, have a look at
         # pymia.filtering.registration.MultiModalRegistration. Think about the type of registration, i.e.
         # do you want to register to an atlas or inter-subject? Or just ask us, we can guide you ;-)
-
-        return image
+        sitk.Show(registred_image)
+        return registred_image
 
     def __str__(self):
         """Gets a printable string representation.
