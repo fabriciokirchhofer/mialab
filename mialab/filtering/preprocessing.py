@@ -31,10 +31,14 @@ class ImageNormalization(pymia_fltr.Filter):
         """
 
         img_arr = sitk.GetArrayFromImage(image)
-        print("Shape of img_arr", img_arr.shape)
 
         # todo: normalize the image using numpy
-        img_arr = np.linalg.norm(image)
+        mu = np.mean(img_arr)
+        std = np.std(img_arr)
+        if std == 0:
+            img_arr -= mu
+        else:
+            img_arr = (img_arr-mu) / std 
         
         img_out = sitk.GetImageFromArray(img_arr)
         img_out.CopyInformation(image)
@@ -159,18 +163,14 @@ class ImageRegistration(pymia_fltr.Filter):
             transform=transform,
             interpolator=interpolator
         )
-        
-        
-        """
-        parameters = pymia_fltr_reg.MultiModalRegistrationParams(fixed_image=atlas)
-        registration = pymia_fltr_reg.MultiModalRegistration()
-        image = registration.execute(image=image, params=parameters)
-        """
-        
+               
         # note: if you are interested in registration, and want to test it, have a look at
         # pymia.filtering.registration.MultiModalRegistration. Think about the type of registration, i.e.
         # do you want to register to an atlas or inter-subject? Or just ask us, we can guide you ;-)
-        sitk.Show(registred_image)
+        
+        #sitk.Show(registred_image)
+        
+        print("Sucessfully finished registration")
         return registred_image
 
     def __str__(self):
