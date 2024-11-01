@@ -1,0 +1,326 @@
+/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:71: UserWarning: No features from T2-weighted image extracted.
+  warnings.warn('No features from T2-weighted image extracted.')
+/storage/homefs/fk17u012/mialab/pipeline.py:75: UserWarning: Random forest parameters not properly set.
+  warnings.warn('Random forest parameters not properly set.')
+/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:294: UserWarning: Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?
+  warnings.warn('Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?')
+/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:71: UserWarning: No features from T2-weighted image extracted.
+  warnings.warn('No features from T2-weighted image extracted.')
+----- Training...
+---------- Processing 113922
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 100307
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 110411
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 100408
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101107
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101915
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101309
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 108828
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103414
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 115320
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103111
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 113619
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 111312
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 106016
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 111716
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 114419
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 116524
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 105115
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 105014
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103818
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+ Time elapsed: 0.2824703160440549 s
+----- Testing...
+---------- Processing 118730
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 117122
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 120111
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 122620
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 124422
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 118528
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 123117
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 122317
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 123925
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 118932
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Testing 118730
+ Time elapsed: 0.710493822931312 s
+---------- Testing 117122
+ Time elapsed: 0.708286031964235 s
+---------- Testing 120111
+ Time elapsed: 0.7148813350358978 s
+---------- Testing 122620
+ Time elapsed: 0.7088938999222592 s
+---------- Testing 124422
+ Time elapsed: 0.7158115620259196 s
+---------- Testing 118528
+ Time elapsed: 0.7147118970751762 s
+---------- Testing 123117
+ Time elapsed: 0.7113612300017849 s
+---------- Testing 122317
+ Time elapsed: 0.7156208020169288 s
+---------- Testing 123925
+ Time elapsed: 0.7114051299868152 s
+---------- Testing 118932
+ Time elapsed: 0.7165628989459947 s
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+/storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
+  warnings.warn('No post-processing implemented. Can you think about something?')
+---------- Post-processing 118730
+---------- Post-processing 117122
+---------- Post-processing 120111
+---------- Post-processing 122620
+---------- Post-processing 124422
+---------- Post-processing 123117
+---------- Post-processing 118528
+---------- Post-processing 122317
+---------- Post-processing 123925
+
+Subject-wise results...
+SUBJECT    LABEL        DICE 
+117122     Amygdala     0.000
+117122     GreyMatter   0.662
+117122     Hippocampus  0.123
+117122     Thalamus     0.220
+117122     WhiteMatter  0.796
+117122-PP  Amygdala     0.000
+117122-PP  GreyMatter   0.662
+117122-PP  Hippocampus  0.123
+117122-PP  Thalamus     0.220
+117122-PP  WhiteMatter  0.796
+118528     Amygdala     0.000
+118528     GreyMatter   0.663
+118528     Hippocampus  0.128
+118528     Thalamus     0.205
+118528     WhiteMatter  0.805
+118528-PP  Amygdala     0.000
+118528-PP  GreyMatter   0.663
+118528-PP  Hippocampus  0.128
+118528-PP  Thalamus     0.205
+118528-PP  WhiteMatter  0.805
+118730     Amygdala     0.000
+118730     GreyMatter   0.665
+118730     Hippocampus  0.115
+118730     Thalamus     0.238
+118730     WhiteMatter  0.785
+118730-PP  Amygdala     0.000
+118730-PP  GreyMatter   0.665
+118730-PP  Hippocampus  0.115
+118730-PP  Thalamus     0.238
+118730-PP  WhiteMatter  0.785
+118932     Amygdala     0.000
+118932     GreyMatter   0.674
+118932     Hippocampus  0.122
+118932     Thalamus     0.216
+118932     WhiteMatter  0.812
+118932-PP  Amygdala     0.000
+118932-PP  GreyMatter   0.674
+118932-PP  Hippocampus  0.122
+118932-PP  Thalamus     0.216
+118932-PP  WhiteMatter  0.812
+120111     Amygdala     0.000
+120111     GreyMatter   0.656
+120111     Hippocampus  0.125
+120111     Thalamus     0.228
+120111     WhiteMatter  0.821
+120111-PP  Amygdala     0.000
+120111-PP  GreyMatter   0.656
+120111-PP  Hippocampus  0.125
+120111-PP  Thalamus     0.228
+120111-PP  WhiteMatter  0.821
+122317     Amygdala     0.000
+122317     GreyMatter   0.664
+122317     Hippocampus  0.116
+122317     Thalamus     0.210
+122317     WhiteMatter  0.795
+122317-PP  Amygdala     0.000
+122317-PP  GreyMatter   0.664
+122317-PP  Hippocampus  0.116
+122317-PP  Thalamus     0.210
+122317-PP  WhiteMatter  0.795
+122620     Amygdala     0.000
+122620     GreyMatter   0.672
+122620     Hippocampus  0.127
+122620     Thalamus     0.227
+122620     WhiteMatter  0.780
+122620-PP  Amygdala     0.000
+122620-PP  GreyMatter   0.672
+122620-PP  Hippocampus  0.127
+122620-PP  Thalamus     0.227
+122620-PP  WhiteMatter  0.780
+123117     Amygdala     0.000
+123117     GreyMatter   0.656
+123117     Hippocampus  0.126
+123117     Thalamus     0.214
+123117     WhiteMatter  0.822
+123117-PP  Amygdala     0.000
+123117-PP  GreyMatter   0.656
+123117-PP  Hippocampus  0.126
+123117-PP  Thalamus     0.214
+123117-PP  WhiteMatter  0.822
+123925     Amygdala     0.000
+123925     GreyMatter   0.650
+123925     Hippocampus  0.134
+123925     Thalamus     0.243
+123925     WhiteMatter  0.801
+123925-PP  Amygdala     0.000
+123925-PP  GreyMatter   0.650
+123925-PP  Hippocampus  0.134
+123925-PP  Thalamus     0.243
+123925-PP  WhiteMatter  0.801
+124422     Amygdala     0.000
+124422     GreyMatter   0.645
+124422     Hippocampus  0.133
+124422     Thalamus     0.242
+124422     WhiteMatter  0.757
+124422-PP  Amygdala     0.000
+124422-PP  GreyMatter   0.645
+124422-PP  Hippocampus  0.133
+124422-PP  Thalamus     0.242
+124422-PP  WhiteMatter  0.757
+
+Aggregated statistic results...
+LABEL        METRIC  STATISTIC  VALUE
+Amygdala     DICE    MEAN       0.000
+Amygdala     DICE    STD        0.000
+GreyMatter   DICE    MEAN       0.661
+GreyMatter   DICE    STD        0.009
+Hippocampus  DICE    MEAN       0.125
+Hippocampus  DICE    STD        0.006
+Thalamus     DICE    MEAN       0.225
+Thalamus     DICE    STD        0.013
+WhiteMatter  DICE    MEAN       0.797
+WhiteMatter  DICE    STD        0.019
