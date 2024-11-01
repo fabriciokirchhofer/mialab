@@ -1,11 +1,7 @@
-/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:71: UserWarning: No features from T2-weighted image extracted.
-  warnings.warn('No features from T2-weighted image extracted.')
 /storage/homefs/fk17u012/mialab/pipeline.py:75: UserWarning: Random forest parameters not properly set.
   warnings.warn('Random forest parameters not properly set.')
-/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:294: UserWarning: Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?
+/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:309: UserWarning: Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?
   warnings.warn('Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?')
-/storage/homefs/fk17u012/mialab/mialab/utilities/pipeline_utilities.py:71: UserWarning: No features from T2-weighted image extracted.
-  warnings.warn('No features from T2-weighted image extracted.')
 ----- Training...
 ---------- Processing 113922
 Sucessfully finished registration
@@ -107,7 +103,7 @@ Sucessfully finished registration
 Sucessfully finished registration
 Sucessfully finished registration
 Sucessfully finished registration
- Time elapsed: 0.2824703160440549 s
+ Time elapsed: 0.4971922669792548 s
 ----- Testing...
 ---------- Processing 118730
 Sucessfully finished registration
@@ -160,25 +156,25 @@ Sucessfully finished registration
 Sucessfully finished registration
 Sucessfully finished registration
 ---------- Testing 118730
- Time elapsed: 0.710493822931312 s
+ Time elapsed: 0.781631389982067 s
 ---------- Testing 117122
- Time elapsed: 0.708286031964235 s
+ Time elapsed: 0.7889090100070462 s
 ---------- Testing 120111
- Time elapsed: 0.7148813350358978 s
+ Time elapsed: 0.7743275020038709 s
 ---------- Testing 122620
- Time elapsed: 0.7088938999222592 s
+ Time elapsed: 0.7642021719366312 s
 ---------- Testing 124422
- Time elapsed: 0.7158115620259196 s
+ Time elapsed: 0.7689035899238661 s
 ---------- Testing 118528
- Time elapsed: 0.7147118970751762 s
+ Time elapsed: 0.7703824690543115 s
 ---------- Testing 123117
- Time elapsed: 0.7113612300017849 s
+ Time elapsed: 0.7640778530621901 s
 ---------- Testing 122317
- Time elapsed: 0.7156208020169288 s
+ Time elapsed: 0.7598476130515337 s
 ---------- Testing 123925
- Time elapsed: 0.7114051299868152 s
+ Time elapsed: 0.7624798740725964 s
 ---------- Testing 118932
- Time elapsed: 0.7165628989459947 s
+ Time elapsed: 0.7838772350223735 s
 /storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
   warnings.warn('No post-processing implemented. Can you think about something?')
 /storage/homefs/fk17u012/mialab/mialab/filtering/postprocessing.py:33: UserWarning: No post-processing implemented. Can you think about something?
@@ -203,8 +199,8 @@ Sucessfully finished registration
 ---------- Post-processing 117122
 ---------- Post-processing 120111
 ---------- Post-processing 122620
+---------- Post-processing 118932
 ---------- Post-processing 124422
----------- Post-processing 123117
 ---------- Post-processing 118528
 ---------- Post-processing 122317
 ---------- Post-processing 123925
@@ -213,114 +209,114 @@ Subject-wise results...
 SUBJECT    LABEL        DICE 
 117122     Amygdala     0.000
 117122     GreyMatter   0.662
-117122     Hippocampus  0.123
-117122     Thalamus     0.220
-117122     WhiteMatter  0.796
+117122     Hippocampus  0.156
+117122     Thalamus     0.226
+117122     WhiteMatter  0.793
 117122-PP  Amygdala     0.000
 117122-PP  GreyMatter   0.662
-117122-PP  Hippocampus  0.123
-117122-PP  Thalamus     0.220
-117122-PP  WhiteMatter  0.796
+117122-PP  Hippocampus  0.156
+117122-PP  Thalamus     0.226
+117122-PP  WhiteMatter  0.793
 118528     Amygdala     0.000
-118528     GreyMatter   0.663
-118528     Hippocampus  0.128
-118528     Thalamus     0.205
-118528     WhiteMatter  0.805
+118528     GreyMatter   0.662
+118528     Hippocampus  0.158
+118528     Thalamus     0.214
+118528     WhiteMatter  0.802
 118528-PP  Amygdala     0.000
-118528-PP  GreyMatter   0.663
-118528-PP  Hippocampus  0.128
-118528-PP  Thalamus     0.205
-118528-PP  WhiteMatter  0.805
+118528-PP  GreyMatter   0.662
+118528-PP  Hippocampus  0.158
+118528-PP  Thalamus     0.214
+118528-PP  WhiteMatter  0.802
 118730     Amygdala     0.000
 118730     GreyMatter   0.665
-118730     Hippocampus  0.115
-118730     Thalamus     0.238
-118730     WhiteMatter  0.785
+118730     Hippocampus  0.141
+118730     Thalamus     0.242
+118730     WhiteMatter  0.779
 118730-PP  Amygdala     0.000
 118730-PP  GreyMatter   0.665
-118730-PP  Hippocampus  0.115
-118730-PP  Thalamus     0.238
-118730-PP  WhiteMatter  0.785
+118730-PP  Hippocampus  0.141
+118730-PP  Thalamus     0.242
+118730-PP  WhiteMatter  0.779
 118932     Amygdala     0.000
-118932     GreyMatter   0.674
-118932     Hippocampus  0.122
-118932     Thalamus     0.216
-118932     WhiteMatter  0.812
+118932     GreyMatter   0.676
+118932     Hippocampus  0.149
+118932     Thalamus     0.226
+118932     WhiteMatter  0.810
 118932-PP  Amygdala     0.000
-118932-PP  GreyMatter   0.674
-118932-PP  Hippocampus  0.122
-118932-PP  Thalamus     0.216
-118932-PP  WhiteMatter  0.812
+118932-PP  GreyMatter   0.676
+118932-PP  Hippocampus  0.149
+118932-PP  Thalamus     0.226
+118932-PP  WhiteMatter  0.810
 120111     Amygdala     0.000
-120111     GreyMatter   0.656
-120111     Hippocampus  0.125
-120111     Thalamus     0.228
+120111     GreyMatter   0.658
+120111     Hippocampus  0.159
+120111     Thalamus     0.232
 120111     WhiteMatter  0.821
 120111-PP  Amygdala     0.000
-120111-PP  GreyMatter   0.656
-120111-PP  Hippocampus  0.125
-120111-PP  Thalamus     0.228
+120111-PP  GreyMatter   0.658
+120111-PP  Hippocampus  0.159
+120111-PP  Thalamus     0.232
 120111-PP  WhiteMatter  0.821
 122317     Amygdala     0.000
 122317     GreyMatter   0.664
-122317     Hippocampus  0.116
-122317     Thalamus     0.210
-122317     WhiteMatter  0.795
+122317     Hippocampus  0.147
+122317     Thalamus     0.215
+122317     WhiteMatter  0.792
 122317-PP  Amygdala     0.000
 122317-PP  GreyMatter   0.664
-122317-PP  Hippocampus  0.116
-122317-PP  Thalamus     0.210
-122317-PP  WhiteMatter  0.795
+122317-PP  Hippocampus  0.147
+122317-PP  Thalamus     0.215
+122317-PP  WhiteMatter  0.792
 122620     Amygdala     0.000
-122620     GreyMatter   0.672
-122620     Hippocampus  0.127
-122620     Thalamus     0.227
-122620     WhiteMatter  0.780
+122620     GreyMatter   0.671
+122620     Hippocampus  0.147
+122620     Thalamus     0.233
+122620     WhiteMatter  0.777
 122620-PP  Amygdala     0.000
-122620-PP  GreyMatter   0.672
-122620-PP  Hippocampus  0.127
-122620-PP  Thalamus     0.227
-122620-PP  WhiteMatter  0.780
+122620-PP  GreyMatter   0.671
+122620-PP  Hippocampus  0.147
+122620-PP  Thalamus     0.233
+122620-PP  WhiteMatter  0.777
 123117     Amygdala     0.000
-123117     GreyMatter   0.656
-123117     Hippocampus  0.126
-123117     Thalamus     0.214
-123117     WhiteMatter  0.822
+123117     GreyMatter   0.654
+123117     Hippocampus  0.155
+123117     Thalamus     0.220
+123117     WhiteMatter  0.818
 123117-PP  Amygdala     0.000
-123117-PP  GreyMatter   0.656
-123117-PP  Hippocampus  0.126
-123117-PP  Thalamus     0.214
-123117-PP  WhiteMatter  0.822
+123117-PP  GreyMatter   0.654
+123117-PP  Hippocampus  0.155
+123117-PP  Thalamus     0.220
+123117-PP  WhiteMatter  0.818
 123925     Amygdala     0.000
-123925     GreyMatter   0.650
-123925     Hippocampus  0.134
-123925     Thalamus     0.243
-123925     WhiteMatter  0.801
+123925     GreyMatter   0.647
+123925     Hippocampus  0.166
+123925     Thalamus     0.247
+123925     WhiteMatter  0.794
 123925-PP  Amygdala     0.000
-123925-PP  GreyMatter   0.650
-123925-PP  Hippocampus  0.134
-123925-PP  Thalamus     0.243
-123925-PP  WhiteMatter  0.801
+123925-PP  GreyMatter   0.647
+123925-PP  Hippocampus  0.166
+123925-PP  Thalamus     0.247
+123925-PP  WhiteMatter  0.794
 124422     Amygdala     0.000
-124422     GreyMatter   0.645
-124422     Hippocampus  0.133
-124422     Thalamus     0.242
-124422     WhiteMatter  0.757
+124422     GreyMatter   0.642
+124422     Hippocampus  0.164
+124422     Thalamus     0.246
+124422     WhiteMatter  0.749
 124422-PP  Amygdala     0.000
-124422-PP  GreyMatter   0.645
-124422-PP  Hippocampus  0.133
-124422-PP  Thalamus     0.242
-124422-PP  WhiteMatter  0.757
+124422-PP  GreyMatter   0.642
+124422-PP  Hippocampus  0.164
+124422-PP  Thalamus     0.246
+124422-PP  WhiteMatter  0.749
 
 Aggregated statistic results...
 LABEL        METRIC  STATISTIC  VALUE
 Amygdala     DICE    MEAN       0.000
 Amygdala     DICE    STD        0.000
-GreyMatter   DICE    MEAN       0.661
-GreyMatter   DICE    STD        0.009
-Hippocampus  DICE    MEAN       0.125
-Hippocampus  DICE    STD        0.006
-Thalamus     DICE    MEAN       0.225
-Thalamus     DICE    STD        0.013
-WhiteMatter  DICE    MEAN       0.797
-WhiteMatter  DICE    STD        0.019
+GreyMatter   DICE    MEAN       0.660
+GreyMatter   DICE    STD        0.010
+Hippocampus  DICE    MEAN       0.154
+Hippocampus  DICE    STD        0.008
+Thalamus     DICE    MEAN       0.230
+Thalamus     DICE    STD        0.011
+WhiteMatter  DICE    MEAN       0.794
+WhiteMatter  DICE    STD        0.020
