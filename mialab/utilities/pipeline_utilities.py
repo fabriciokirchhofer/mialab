@@ -61,6 +61,8 @@ class FeatureExtractor:
         self.intensity_feature = kwargs.get('intensity_feature', False)
         self.gradient_intensity_feature = kwargs.get('gradient_intensity_feature', False)
 
+
+
     def execute(self) -> structure.BrainImage:
         """Extracts features from an image.
 
@@ -70,32 +72,26 @@ class FeatureExtractor:
         # todo: add T2w features
 
         if self.coordinates_feature:
-            # Innitiate AtlasCoordinates object
+            # Atlas coordinates feature
             atlas_coordinates = fltr_feat.AtlasCoordinates()
             self.img.feature_images[FeatureImageTypes.ATLAS_COORD] = \
                 atlas_coordinates.execute(self.img.images[structure.BrainImageTypes.T1w])
 
         if self.intensity_feature:
-            # Compute T1 weighted images intensity
+            # T1w intensity
             self.img.feature_images[FeatureImageTypes.T1w_INTENSITY] = self.img.images[structure.BrainImageTypes.T1w]
-
-        if self.gradient_intensity_feature:
-            # Compute T1 weihted images gradient magnitude images
-            self.img.feature_images[FeatureImageTypes.T1w_GRADIENT_INTENSITY] = \
-                sitk.GradientMagnitude(self.img.images[structure.BrainImageTypes.T1w])
-        
-        # **** Fabricio implementation starts here ****
-        if self.intensity_feature:
-            # Compute T2 weighted images intensity
+            # T2w intensity
             self.img.feature_images[FeatureImageTypes.T2w_INTENSITY] = self.img.images[structure.BrainImageTypes.T2w]
 
         if self.gradient_intensity_feature:
-            # Compute T2 weighted images gradient magnitude
+            # T1w gradient intensity
+            self.img.feature_images[FeatureImageTypes.T1w_GRADIENT_INTENSITY] = \
+                sitk.GradientMagnitude(self.img.images[structure.BrainImageTypes.T1w])
+            # T2w gradient intensity
             self.img.feature_images[FeatureImageTypes.T2w_GRADIENT_INTENSITY] = \
                 sitk.GradientMagnitude(self.img.images[structure.BrainImageTypes.T2w])
 
         self._generate_feature_matrix()
-
         return self.img
 
     def _generate_feature_matrix(self):
@@ -291,30 +287,22 @@ def post_process(img: structure.BrainImage, segmentation: sitk.Image, probabilit
 
     return pipeline.execute(segmentation)
 
-
 def init_evaluator() -> eval_.Evaluator:
-    """Initializes an evaluator.
+    """Initializes an evaluator with the Dice and Hausdorff metrics.
 
     Returns:
-        eval.Evaluator: An evaluator.
+        eval.Evaluator: An evaluator instance.
     """
-
-    # initialize metrics
-    metrics = [metric.DiceCoefficient()]
+    # Initialize Dice and Hausdorff distance metrics
+    metrics = [metric.DiceCoefficient(), metric.HausdorffDistance(percentile=95)]
     # todo: add hausdorff distance, 95th percentile (see metric.HausdorffDistance)
-    warnings.warn('Initialized evaluation with the Dice coefficient. Do you know other suitable metrics?')
+    #warnings.warn('Initialized evaluation with Dice and Hausdorff distance (95th percentile).')
 
-    # define the labels to evaluate
-    labels = {1: 'WhiteMatter',
-              2: 'GreyMatter',
-              3: 'Hippocampus',
-              4: 'Amygdala',
-              5: 'Thalamus'
-              }
+    # Define the labels to evaluate
+    labels = {1: 'WhiteMatter', 2: 'GreyMatter', 3: 'Hippocampus', 4: 'Amygdala', 5: 'Thalamus'}
 
     evaluator = eval_.SegmentationEvaluator(metrics, labels)
     return evaluator
-
 
 def pre_process_batch(data_batch: t.Dict[structure.BrainImageTypes, structure.BrainImage],
                       pre_process_params: dict = None, multi_process: bool = True) -> t.List[structure.BrainImage]:
