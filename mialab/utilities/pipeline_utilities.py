@@ -68,20 +68,31 @@ class FeatureExtractor:
             structure.BrainImage: The image with extracted features.
         """
         # todo: add T2w features
-        warnings.warn('No features from T2-weighted image extracted.')
 
         if self.coordinates_feature:
+            # Innitiate AtlasCoordinates object
             atlas_coordinates = fltr_feat.AtlasCoordinates()
             self.img.feature_images[FeatureImageTypes.ATLAS_COORD] = \
                 atlas_coordinates.execute(self.img.images[structure.BrainImageTypes.T1w])
 
         if self.intensity_feature:
+            # Compute T1 weighted images intensity
             self.img.feature_images[FeatureImageTypes.T1w_INTENSITY] = self.img.images[structure.BrainImageTypes.T1w]
 
         if self.gradient_intensity_feature:
-            # compute gradient magnitude images
+            # Compute T1 weihted images gradient magnitude images
             self.img.feature_images[FeatureImageTypes.T1w_GRADIENT_INTENSITY] = \
                 sitk.GradientMagnitude(self.img.images[structure.BrainImageTypes.T1w])
+        
+        # **** Fabricio implementation starts here ****
+        if self.intensity_feature:
+            # Compute T2 weighted images intensity
+            self.img.feature_images[FeatureImageTypes.T2w_INTENSITY] = self.img.images[structure.BrainImageTypes.T2w]
+
+        if self.gradient_intensity_feature:
+            # Compute T2 weighted images gradient magnitude
+            self.img.feature_images[FeatureImageTypes.T2w_GRADIENT_INTENSITY] = \
+                sitk.GradientMagnitude(self.img.images[structure.BrainImageTypes.T2w])
 
         self._generate_feature_matrix()
 
