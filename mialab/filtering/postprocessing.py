@@ -19,20 +19,40 @@ class ImagePostProcessing(pymia_fltr.Filter):
         super().__init__()
 
     def execute(self, image: sitk.Image, params: pymia_fltr.FilterParams = None) -> sitk.Image:
-        """Registers an image.
+            """Removes unconnected voxels from the segmented image.
 
-        Args:
-            image (sitk.Image): The image.
-            params (FilterParams): The parameters.
+            Args:
+                image (sitk.Image): The segmented image.
+                params (FilterParams): The parameters (not used here).
 
-        Returns:
-            sitk.Image: The post-processed image.
-        """
+            Returns:
+                sitk.Image: The post-processed image with only connected components retained.
+            """
+            # Convert image to binary (assuming it's a labeled segmentation)
+            binary_image = sitk.BinaryThreshold(image, lowerThreshold=1, upperThreshold=255, insideValue=1, outsideValue=0)
 
-        # todo: replace this filter by a post-processing - or do we need post-processing at all?
-        warnings.warn('No post-processing implemented. Can you think about something?')
+            # Perform connected component analysis to label each connected region
+            connected_components = sitk.ConnectedComponent(binary_image)
 
-        return image
+            # Calculate the size of each connected component
+            component_sizes = sitk.LabelShapeStatisticsImageFilter()
+            component_sizes.Execute(connected_components)
+
+            # Identify the largest connected component (assuming it's the main segmented area)
+            largest_label = max(
+                (label for label in component_sizes.GetLabels()),
+                key=lambda label: component_sizes.GetPhysicalSize(label)
+            )
+
+            # Create a binary mask for the largest connected component only
+            largest_component_mask = sitk.BinaryThreshold(
+                connected_components, lowerThreshold=largest_label, upperThreshold=largest_label, insideValue=1, outsideValue=0
+            )
+
+            # Use the largest component mask to filter the original image
+            cleaned_image = sitk.Mask(image, largest_component_mask)
+
+            return cleaned_image
 
     def __str__(self):
         """Gets a printable string representation.
