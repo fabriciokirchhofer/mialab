@@ -76,11 +76,16 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
     #forest = sk_ensemble.RandomForestClassifier(max_features=images[0].feature_matrix[0].shape[1],
         #                                        n_estimators=1,
         #                                        max_depth=5)
+    # Define RandomForest parameters
+    n_estimators = 100
+    max_features = 'sqrt'
+    max_depth = 20
+    random_state = 42
     forest = sk_ensemble.RandomForestClassifier(
-        n_estimators=100,  # Increased number of trees
-        max_features='sqrt',  # Fraction of features per split
-        max_depth=20,  # Allow trees to grow fully (or set an appropriate limit)
-        random_state=42  # For reproducibility
+        n_estimators=n_estimators,  # Increased number of trees
+        max_features=max_features,  # Fraction of features per split
+        max_depth=max_depth,  # Allow trees to grow fully (or set an appropriate limit)
+        random_state=random_state  # For reproducibility
     )
 
 
@@ -144,15 +149,16 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
         sitk.WriteImage(images_post_processed[i], os.path.join(result_dir, images_test[i].id_ + '_SEG-PP.mha'), True)
 
     # use two writers to report the results
+    params_str = f"n_estimators_{n_estimators}_max_depth_{max_depth}_max_features_{max_features}_random_state_{random_state}"
     os.makedirs(result_dir, exist_ok=True)  # generate result directory, if it does not exists
-    result_file = os.path.join(result_dir, 'results.csv')
+    result_file = os.path.join(result_dir, f'results_{params_str}.csv')
     writer.CSVWriter(result_file).write(evaluator.results)
 
     print('\nSubject-wise results...')
     writer.ConsoleWriter().write(evaluator.results)
 
     # report also mean and standard deviation among all subjects
-    result_summary_file = os.path.join(result_dir, 'results_summary.csv')
+    result_summary_file = os.path.join(result_dir, f'results_summary{params_str}.csv')
     functions = {'MEAN': np.mean, 'STD': np.std}
     writer.CSVStatisticsWriter(result_summary_file, functions=functions).write(evaluator.results)
     print('\nAggregated statistic results...')
