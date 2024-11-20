@@ -15,6 +15,8 @@ import numpy as np
 import pymia.data.conversion as conversion
 import pymia.evaluation.writer as writer
 
+from plot_results import generate_plots
+
 try:
     import mialab.data.structure as structure
     import mialab.utilities.file_access_utilities as futil
@@ -157,9 +159,18 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
     writer.CSVStatisticsWriter(result_summary_file, functions=functions).write(evaluator.results)
     print('\nAggregated statistic results...')
     writer.ConsoleStatisticsWriter(functions=functions).write(evaluator.results)
-
+    
     # clear results such that the evaluator is ready for the next evaluation
     evaluator.clear()
+    
+    # Create automatic plots with parameters in separate folder inside of result_dir
+    result_plots = os.path.join(result_dir, "plots")
+    results_folder = os.makedirs(result_plots, exist_ok=True)
+    
+    putil.save_classifier_params(classifier=forest, output_dir=result_plots)
+    
+    print("Generating plots...")
+    generate_plots(results_dir=result_dir, results_folder=results_folder)
 
 
 if __name__ == "__main__":
