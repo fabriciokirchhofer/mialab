@@ -1,0 +1,404 @@
+/storage/homefs/fk17u012/mialab/pipeline.py:77: UserWarning: Random forest parameters not properly set --> Julien tried something out
+  warnings.warn('Random forest parameters not properly set --> Julien tried something out')
+----- Training...
+---------- Processing 113922
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 100307
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 110411
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 100408
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101107
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101915
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 101309
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 108828
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103414
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 115320
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103111
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 113619
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 111312
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 106016
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 111716
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 114419
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 116524
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 105115
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 105014
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 103818
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+ Time elapsed: 20.067983531043865 s
+----- Testing...
+---------- Processing 118730
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 117122
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 120111
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 122620
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 124422
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 118528
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 123117
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 122317
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 123925
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Processing 118932
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+Sucessfully finished registration
+---------- Testing 118730
+ Time elapsed: 40.030100309988484 s
+---------- Testing 117122
+ Time elapsed: 39.222300491062924 s
+---------- Testing 120111
+ Time elapsed: 39.05037063790951 s
+---------- Testing 122620
+ Time elapsed: 39.46494854707271 s
+---------- Testing 124422
+ Time elapsed: 39.27634844894055 s
+---------- Testing 118528
+ Time elapsed: 39.88472244492732 s
+---------- Testing 123117
+ Time elapsed: 39.5820094589144 s
+---------- Testing 122317
+ Time elapsed: 39.353998875943944 s
+---------- Testing 123925
+ Time elapsed: 38.79224574496038 s
+---------- Testing 118932
+ Time elapsed: 40.0163542360533 s
+---------- Post-processing 118932
+---------- Post-processing 118730
+---------- Post-processing 117122
+---------- Post-processing 120111
+---------- Post-processing 122620
+---------- Post-processing 124422
+---------- Post-processing 118528
+---------- Post-processing 123117
+---------- Post-processing 122317
+---------- Post-processing 123925
+
+Subject-wise results...
+SUBJECT    LABEL        AUC    AVGDIST  DICE   FN         FP          HDRFDST  JACRD  SNSVTY  SPCFTY  TN           TP        
+117122     Amygdala     0.920  1.474    0.510  477.000    4391.000    12.689   0.342  0.841   0.999   8667891.000  2530.000  
+117122     GreyMatter   0.958  0.312    0.722  20422.000  353455.000  2.000    0.565  0.960   0.957   7815063.000  486349.000
+117122     Hippocampus  0.980  1.144    0.562  329.000    12670.000   12.570   0.391  0.962   0.999   8653945.000  8345.000  
+117122     Thalamus     0.976  0.432    0.778  819.000    8542.000    7.071    0.636  0.952   0.999   8649561.000  16367.000 
+117122     WhiteMatter  0.974  0.285    0.812  12818.000  201989.000  3.162    0.683  0.973   0.975   7997273.000  463209.000
+117122-PP  Amygdala     0.920  1.473    0.510  477.000    4387.000    12.689   0.342  0.841   0.999   8667895.000  2530.000  
+117122-PP  GreyMatter   0.958  0.310    0.723  20422.000  353103.000  2.000    0.566  0.960   0.957   7815415.000  486349.000
+117122-PP  Hippocampus  0.980  1.136    0.563  329.000    12618.000   12.530   0.392  0.962   0.999   8653997.000  8345.000  
+117122-PP  Thalamus     0.976  0.431    0.778  819.000    8526.000    7.071    0.637  0.952   0.999   8649577.000  16367.000 
+117122-PP  WhiteMatter  0.974  0.283    0.812  12818.000  201596.000  3.000    0.684  0.973   0.975   7997666.000  463209.000
+118528     Amygdala     0.905  1.684    0.464  592.000    5256.000    13.454   0.302  0.811   0.999   8666906.000  2535.000  
+118528     GreyMatter   0.961  0.333    0.719  16062.000  390290.000  3.000    0.562  0.970   0.952   7747850.000  521087.000
+118528     Hippocampus  0.985  1.314    0.541  283.000    15917.000   13.491   0.371  0.971   0.998   8649551.000  9538.000  
+118528     Thalamus     0.982  0.500    0.751  632.000    10949.000   8.246    0.602  0.965   0.999   8646216.000  17492.000 
+118528     WhiteMatter  0.970  0.259    0.825  18148.000  176815.000  3.162    0.702  0.962   0.978   8020521.000  459805.000
+118528-PP  Amygdala     0.905  1.682    0.465  592.000    5251.000    13.454   0.303  0.811   0.999   8666911.000  2535.000  
+118528-PP  GreyMatter   0.961  0.332    0.720  16062.000  389972.000  2.828    0.562  0.970   0.952   7748168.000  521087.000
+118528-PP  Hippocampus  0.985  1.311    0.541  283.000    15893.000   13.491   0.371  0.971   0.998   8649575.000  9538.000  
+118528-PP  Thalamus     0.982  0.499    0.751  632.000    10940.000   8.246    0.602  0.965   0.999   8646225.000  17492.000 
+118528-PP  WhiteMatter  0.970  0.255    0.826  18148.000  176214.000  3.000    0.703  0.962   0.979   8021122.000  459805.000
+118730     Amygdala     0.981  1.050    0.566  120.000    4717.000    10.954   0.395  0.963   0.999   8667299.000  3153.000  
+118730     GreyMatter   0.956  0.297    0.728  23260.000  386143.000  2.000    0.573  0.959   0.952   7716664.000  549222.000
+118730     Hippocampus  0.973  1.427    0.484  444.000    17024.000   11.045   0.319  0.949   0.998   8649620.000  8201.000  
+118730     Thalamus     0.988  0.571    0.741  398.000    11153.000   11.091   0.588  0.976   0.999   8647254.000  16484.000 
+118730     WhiteMatter  0.973  0.263    0.810  13799.000  185059.000  2.828    0.681  0.969   0.978   8051717.000  424714.000
+118730-PP  Amygdala     0.981  1.049    0.566  120.000    4715.000    10.863   0.395  0.963   0.999   8667301.000  3153.000  
+118730-PP  GreyMatter   0.956  0.296    0.729  23260.000  385846.000  2.000    0.573  0.959   0.952   7716961.000  549222.000
+118730-PP  Hippocampus  0.973  1.420    0.485  444.000    16976.000   10.954   0.320  0.949   0.998   8649668.000  8201.000  
+118730-PP  Thalamus     0.988  0.570    0.741  398.000    11133.000   11.180   0.588  0.976   0.999   8647274.000  16484.000 
+118730-PP  WhiteMatter  0.973  0.259    0.811  13799.000  184531.000  2.449    0.682  0.969   0.978   8052245.000  424714.000
+118932     Amygdala     0.975  1.287    0.550  152.000    4551.000    12.042   0.379  0.950   0.999   8667714.000  2872.000  
+118932     GreyMatter   0.962  0.289    0.734  16779.000  377654.000  2.000    0.580  0.970   0.953   7736700.000  544156.000
+118932     Hippocampus  0.985  1.278    0.515  251.000    15853.000   12.042   0.347  0.971   0.998   8650631.000  8554.000  
+118932     Thalamus     0.976  0.549    0.753  881.000    10823.000   12.247   0.604  0.953   0.999   8645706.000  17879.000 
+118932     WhiteMatter  0.969  0.252    0.829  20460.000  171855.000  3.000    0.709  0.958   0.979   8015228.000  467746.000
+118932-PP  Amygdala     0.975  1.286    0.550  152.000    4548.000    12.042   0.379  0.950   0.999   8667717.000  2872.000  
+118932-PP  GreyMatter   0.962  0.288    0.734  16783.000  377350.000  2.000    0.580  0.970   0.953   7737004.000  544152.000
+118932-PP  Hippocampus  0.985  1.273    0.516  251.000    15811.000   12.042   0.347  0.971   0.998   8650673.000  8554.000  
+118932-PP  Thalamus     0.976  0.548    0.754  881.000    10808.000   12.247   0.605  0.953   0.999   8645721.000  17879.000 
+118932-PP  WhiteMatter  0.969  0.249    0.830  20460.000  171268.000  3.000    0.709  0.958   0.979   8015815.000  467746.000
+120111     Amygdala     0.898  1.247    0.524  768.000    4663.000    9.381    0.355  0.796   0.999   8666868.000  2990.000  
+120111     GreyMatter   0.962  0.312    0.716  15242.000  368196.000  2.000    0.557  0.969   0.955   7809512.000  482339.000
+120111     Hippocampus  0.991  1.380    0.500  140.000    16938.000   11.662   0.333  0.984   0.998   8649669.000  8542.000  
+120111     Thalamus     0.977  0.669    0.722  797.000    12326.000   13.077   0.565  0.955   0.999   8645123.000  17043.000 
+120111     WhiteMatter  0.970  0.218    0.847  20727.000  162788.000  2.236    0.734  0.961   0.980   7984098.000  507676.000
+120111-PP  Amygdala     0.898  1.247    0.524  768.000    4656.000    9.381    0.355  0.796   0.999   8666875.000  2990.000  
+120111-PP  GreyMatter   0.962  0.311    0.716  15242.000  367950.000  2.000    0.557  0.969   0.955   7809758.000  482339.000
+120111-PP  Hippocampus  0.991  1.376    0.501  140.000    16899.000   11.662   0.334  0.984   0.998   8649708.000  8542.000  
+120111-PP  Thalamus     0.977  0.669    0.722  797.000    12318.000   13.038   0.565  0.955   0.999   8645131.000  17043.000 
+120111-PP  WhiteMatter  0.970  0.215    0.847  20727.000  162365.000  2.236    0.735  0.961   0.980   7984521.000  507676.000
+122317     Amygdala     0.956  1.019    0.600  291.000    3733.000    12.369   0.429  0.912   1.000   8668246.000  3019.000  
+122317     GreyMatter   0.954  0.301    0.734  27049.000  335172.000  2.000    0.579  0.949   0.959   7813979.000  499089.000
+122317     Hippocampus  0.983  1.300    0.532  253.000    12970.000   12.083   0.362  0.967   0.999   8654559.000  7507.000  
+122317     Thalamus     0.987  0.458    0.779  394.000    8573.000    8.944    0.638  0.976   0.999   8650499.000  15823.000 
+122317     WhiteMatter  0.976  0.250    0.830  12758.000  185276.000  3.162    0.710  0.974   0.977   7992197.000  485058.000
+122317-PP  Amygdala     0.956  1.017    0.601  291.000    3724.000    12.369   0.429  0.912   1.000   8668255.000  3019.000  
+122317-PP  GreyMatter   0.954  0.299    0.734  27050.000  334817.000  2.000    0.580  0.949   0.959   7814334.000  499088.000
+122317-PP  Hippocampus  0.983  1.297    0.532  253.000    12932.000   12.083   0.363  0.967   0.999   8654597.000  7507.000  
+122317-PP  Thalamus     0.987  0.455    0.780  394.000    8544.000    8.775    0.639  0.976   0.999   8650528.000  15823.000 
+122317-PP  WhiteMatter  0.976  0.248    0.831  12758.000  184928.000  3.000    0.710  0.974   0.977   7992545.000  485058.000
+122620     Amygdala     0.966  1.004    0.595  241.000    4276.000    12.570   0.423  0.932   1.000   8667454.000  3318.000  
+122620     GreyMatter   0.958  0.312    0.737  22031.000  356368.000  2.236    0.584  0.960   0.956   7766319.000  530571.000
+122620     Hippocampus  0.952  1.334    0.538  922.000    14265.000   13.038   0.368  0.905   0.998   8651274.000  8828.000  
+122620     Thalamus     0.978  0.442    0.773  787.000    9339.000    7.810    0.629  0.956   0.999   8647971.000  17192.000 
+122620     WhiteMatter  0.975  0.276    0.803  11058.000  198658.000  3.000    0.671  0.975   0.976   8037602.000  427971.000
+122620-PP  Amygdala     0.966  1.004    0.595  241.000    4273.000    12.570   0.424  0.932   1.000   8667457.000  3318.000  
+122620-PP  GreyMatter   0.958  0.311    0.737  22033.000  356008.000  2.236    0.584  0.960   0.956   7766679.000  530569.000
+122620-PP  Hippocampus  0.952  1.328    0.538  922.000    14217.000   13.038   0.368  0.905   0.998   8651322.000  8828.000  
+122620-PP  Thalamus     0.978  0.441    0.773  787.000    9336.000    7.681    0.629  0.956   0.999   8647974.000  17192.000 
+122620-PP  WhiteMatter  0.975  0.274    0.804  11058.000  198242.000  3.000    0.672  0.975   0.976   8038018.000  427971.000
+123117     Amygdala     0.955  1.432    0.540  285.000    4620.000    12.329   0.370  0.910   0.999   8667500.000  2884.000  
+123117     GreyMatter   0.961  0.331    0.721  16724.000  371835.000  3.000    0.564  0.968   0.954   7784908.000  501822.000
+123117     Hippocampus  0.984  1.390    0.512  272.000    16403.000   12.207   0.344  0.970   0.998   8649870.000  8744.000  
+123117     Thalamus     0.987  0.635    0.729  435.000    12365.000   15.166   0.574  0.975   0.999   8645256.000  17233.000 
+123117     WhiteMatter  0.969  0.241    0.843  21655.000  160305.000  3.606    0.729  0.958   0.980   8004433.000  488896.000
+123117-PP  Amygdala     0.955  1.432    0.541  285.000    4618.000    12.329   0.370  0.910   0.999   8667502.000  2884.000  
+123117-PP  GreyMatter   0.961  0.330    0.721  16724.000  371509.000  3.000    0.564  0.968   0.954   7785234.000  501822.000
+123117-PP  Hippocampus  0.984  1.386    0.512  272.000    16367.000   12.207   0.344  0.970   0.998   8649906.000  8744.000  
+123117-PP  Thalamus     0.987  0.634    0.729  435.000    12350.000   15.166   0.574  0.975   0.999   8645271.000  17233.000 
+123117-PP  WhiteMatter  0.969  0.237    0.844  21655.000  159639.000  3.317    0.729  0.958   0.980   8005099.000  488896.000
+123925     Amygdala     0.934  1.273    0.558  445.000    4192.000    11.180   0.387  0.868   1.000   8667722.000  2930.000  
+123925     GreyMatter   0.956  0.315    0.717  21961.000  343670.000  2.000    0.559  0.955   0.958   7846510.000  463148.000
+123925     Hippocampus  0.988  1.344    0.525  201.000    15910.000   12.728   0.356  0.978   0.998   8650283.000  8895.000  
+123925     Thalamus     0.984  0.418    0.790  593.000    9134.000    7.874    0.653  0.969   0.999   8647282.000  18280.000 
+123925     WhiteMatter  0.975  0.250    0.828  13212.000  187341.000  3.162    0.706  0.973   0.977   7992213.000  482523.000
+123925-PP  Amygdala     0.934  1.272    0.558  445.000    4190.000    11.180   0.387  0.868   1.000   8667724.000  2930.000  
+123925-PP  GreyMatter   0.956  0.314    0.717  21961.000  343328.000  2.000    0.559  0.955   0.958   7846852.000  463148.000
+123925-PP  Hippocampus  0.988  1.337    0.525  201.000    15866.000   12.689   0.356  0.978   0.998   8650327.000  8895.000  
+123925-PP  Thalamus     0.984  0.417    0.790  593.000    9125.000    7.874    0.653  0.969   0.999   8647291.000  18280.000 
+123925-PP  WhiteMatter  0.975  0.247    0.828  13212.000  186956.000  3.162    0.707  0.973   0.977   7992598.000  482523.000
+124422     Amygdala     0.974  0.888    0.638  188.000    3802.000    10.247   0.468  0.949   1.000   8667785.000  3514.000  
+124422     GreyMatter   0.939  0.333    0.713  41040.000  332462.000  2.000    0.555  0.919   0.959   7836744.000  465043.000
+124422     Hippocampus  0.974  1.184    0.543  449.000    13933.000   10.770   0.373  0.950   0.998   8652357.000  8550.000  
+124422     Thalamus     0.974  0.337    0.817  914.000    6716.000    6.557    0.691  0.949   0.999   8650626.000  17033.000 
+124422     WhiteMatter  0.978  0.299    0.776  6113.000   239640.000  3.162    0.634  0.986   0.971   8003580.000  425956.000
+124422-PP  Amygdala     0.974  0.888    0.638  188.000    3801.000    10.247   0.468  0.949   1.000   8667786.000  3514.000  
+124422-PP  GreyMatter   0.939  0.331    0.714  41040.000  332052.000  2.000    0.555  0.919   0.959   7837154.000  465043.000
+124422-PP  Hippocampus  0.974  1.175    0.544  449.000    13870.000   10.724   0.374  0.950   0.998   8652420.000  8550.000  
+124422-PP  Thalamus     0.974  0.335    0.817  914.000    6698.000    6.557    0.691  0.949   0.999   8650644.000  17033.000 
+124422-PP  WhiteMatter  0.978  0.296    0.776  6113.000   239208.000  3.162    0.635  0.986   0.971   8004012.000  425956.000
+
+Aggregated statistic results...
+LABEL        METRIC   STATISTIC  VALUE      
+Amygdala     AUC      MEAN       0.946      
+Amygdala     AUC      STD        0.029      
+Amygdala     AVGDIST  MEAN       1.235      
+Amygdala     AVGDIST  STD        0.236      
+Amygdala     DICE     MEAN       0.555      
+Amygdala     DICE     STD        0.047      
+Amygdala     FN       MEAN       355.900    
+Amygdala     FN       STD        199.005    
+Amygdala     FP       MEAN       4418.200   
+Amygdala     FP       STD        427.946    
+Amygdala     HDRFDST  MEAN       11.717     
+Amygdala     HDRFDST  STD        1.190      
+Amygdala     JACRD    MEAN       0.385      
+Amygdala     JACRD    STD        0.045      
+Amygdala     SNSVTY   MEAN       0.893      
+Amygdala     SNSVTY   STD        0.058      
+Amygdala     SPCFTY   MEAN       0.999      
+Amygdala     SPCFTY   STD        0.000      
+Amygdala     TN       MEAN       8667540.400
+Amygdala     TN       STD        408.163    
+Amygdala     TP       MEAN       2974.500   
+Amygdala     TP       STD        292.327    
+GreyMatter   AUC      MEAN       0.957      
+GreyMatter   AUC      STD        0.006      
+GreyMatter   AVGDIST  MEAN       0.313      
+GreyMatter   AVGDIST  STD        0.015      
+GreyMatter   DICE     MEAN       0.724      
+GreyMatter   DICE     STD        0.008      
+GreyMatter   FN       MEAN       22057.350  
+GreyMatter   FN       STD        7266.849   
+GreyMatter   FP       MEAN       361359.000 
+GreyMatter   FP       STD        19493.755  
+GreyMatter   HDRFDST  MEAN       2.215      
+GreyMatter   HDRFDST  STD        0.379      
+GreyMatter   JACRD    MEAN       0.568      
+GreyMatter   JACRD    STD        0.010      
+GreyMatter   SNSVTY   MEAN       0.958      
+GreyMatter   SNSVTY   STD        0.015      
+GreyMatter   SPCFTY   MEAN       0.956      
+GreyMatter   SPCFTY   STD        0.002      
+GreyMatter   TN       MEAN       7787590.400
+GreyMatter   TN       STD        41816.497  
+GreyMatter   TP       MEAN       504282.250 
+GreyMatter   TP       STD        29412.011  
+Hippocampus  AUC      MEAN       0.980      
+Hippocampus  AUC      STD        0.011      
+Hippocampus  AVGDIST  MEAN       1.307      
+Hippocampus  AVGDIST  STD        0.085      
+Hippocampus  DICE     MEAN       0.526      
+Hippocampus  DICE     STD        0.022      
+Hippocampus  FN       MEAN       354.400    
+Hippocampus  FN       STD        210.274    
+Hippocampus  FP       MEAN       15166.600  
+Hippocampus  FP       STD        1521.775   
+Hippocampus  HDRFDST  MEAN       12.153     
+Hippocampus  HDRFDST  STD        0.813      
+Hippocampus  JACRD    MEAN       0.357      
+Hippocampus  JACRD    STD        0.020      
+Hippocampus  SNSVTY   MEAN       0.961      
+Hippocampus  SNSVTY   STD        0.021      
+Hippocampus  SPCFTY   MEAN       0.998      
+Hippocampus  SPCFTY   STD        0.000      
+Hippocampus  TN       MEAN       8651197.600
+Hippocampus  TN       STD        1752.843   
+Hippocampus  TP       MEAN       8570.400   
+Hippocampus  TP       STD        495.750    
+Thalamus     AUC      MEAN       0.981      
+Thalamus     AUC      STD        0.005      
+Thalamus     AVGDIST  MEAN       0.501      
+Thalamus     AVGDIST  STD        0.099      
+Thalamus     DICE     MEAN       0.763      
+Thalamus     DICE     STD        0.028      
+Thalamus     FN       MEAN       665.000    
+Thalamus     FN       STD        191.985    
+Thalamus     FP       MEAN       9984.900   
+Thalamus     FP       STD        1734.330   
+Thalamus     HDRFDST  MEAN       9.796      
+Thalamus     HDRFDST  STD        2.764      
+Thalamus     JACRD    MEAN       0.618      
+Thalamus     JACRD    STD        0.037      
+Thalamus     SNSVTY   MEAN       0.963      
+Thalamus     SNSVTY   STD        0.010      
+Thalamus     SPCFTY   MEAN       0.999      
+Thalamus     SPCFTY   STD        0.000      
+Thalamus     TN       MEAN       8647556.500
+Thalamus     TN       STD        1973.453   
+Thalamus     TP       MEAN       17082.600  
+Thalamus     TP       STD        687.840    
+WhiteMatter  AUC      MEAN       0.973      
+WhiteMatter  AUC      STD        0.003      
+WhiteMatter  AVGDIST  MEAN       0.258      
+WhiteMatter  AVGDIST  STD        0.022      
+WhiteMatter  DICE     MEAN       0.821      
+WhiteMatter  DICE     STD        0.020      
+WhiteMatter  FN       MEAN       15074.800  
+WhiteMatter  FN       STD        4750.771   
+WhiteMatter  FP       MEAN       186733.650 
+WhiteMatter  FP       STD        21867.520  
+WhiteMatter  HDRFDST  MEAN       2.990      
+WhiteMatter  HDRFDST  STD        0.328      
+WhiteMatter  JACRD    MEAN       0.696      
+WhiteMatter  JACRD    STD        0.028      
+WhiteMatter  SNSVTY   MEAN       0.969      
+WhiteMatter  SNSVTY   STD        0.009      
+WhiteMatter  SPCFTY   MEAN       0.977      
+WhiteMatter  SPCFTY   STD        0.003      
+WhiteMatter  TN       MEAN       8010125.150
+WhiteMatter  TN       STD        20462.358  
+WhiteMatter  TP       MEAN       463355.400 
+WhiteMatter  TP       STD        27624.030  
+Generating plots...
+Trying to load file: mia-result/2024-11-20-13-08-56/results.csv
+Plots saved in None
