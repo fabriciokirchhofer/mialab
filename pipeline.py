@@ -79,7 +79,7 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
     forest = sk_ensemble.RandomForestClassifier(
         n_estimators=100,  # Increased number of trees
         max_features='sqrt',  # Fraction of features per split
-        max_depth=20,  # Allow trees to grow fully (or set an appropriate limit)
+        max_depth=30,  # Allow trees to grow fully (or set an appropriate limit)
         random_state=42  # For reproducibility
     )
 

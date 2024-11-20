@@ -1,17 +1,44 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import os
+import sys
 
 
-def main():
-    # todo: load the "results.csv" file from the mia-results directory
-    # todo: read the data into a list
-    # todo: plot the Dice coefficients per label (i.e. white matter, gray matter, hippocampus, amygdala, thalamus)
-    #  in a boxplot
-
-    # alternative: instead of manually loading/reading the csv file you could also use the pandas package
-    # but you will need to install it first ('pip install pandas') and import it to this file ('import pandas as pd')
-    pass  # pass is just a placeholder if there is no other code
-
+def main(sub_directory):
+    # Construct the file path for results.csv
+    file_path = os.path.join(directory, 'results.csv')
+    
+    # Load the CSV file using a semicolon as the delimiter
+    print("Trying to load file:", file_path)  # Debugging line
+    data = pd.read_csv(file_path, delimiter=';')
+    
+    # Filter out labels for plotting
+    labels = ["WhiteMatter", "GreyMatter", "Hippocampus", "Amygdala", "Thalamus"]
+    
+    # Identify metric columns (excluding 'SUBJECT' and 'LABEL')
+    metrics = [col for col in data.columns if col not in ['SUBJECT', 'LABEL']]
+    
+    # Create a separate plot for each metric
+    for metric in metrics:
+        # Create a dictionary to store metric values by label
+        metric_data = {label: data[data['LABEL'] == label][metric].tolist() for label in labels}
+        
+        # Plot the metric values per label in a boxplot
+        plt.figure(figsize=(10, 6))
+        plt.boxplot(metric_data.values(), labels=metric_data.keys())
+        plt.xlabel('Label')
+        plt.ylabel(metric)
+        plt.title(f'{metric} per Label')
+        plt.grid(True)
+    
+    # Display all figures at once
+    plt.show()
 
 if __name__ == '__main__':
-    main()
+    # Check if the directory argument is provided
+    if len(sys.argv) < 2:
+        print("Usage: python plot_results.py <directory>")
+    else:
+        directory = sys.argv[1]
+        main(directory)
