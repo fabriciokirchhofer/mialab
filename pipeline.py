@@ -79,10 +79,25 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
         #                                        n_estimators=1,
         #                                        max_depth=5)
     forest = sk_ensemble.RandomForestClassifier(
-        n_estimators=100,  # Increased number of trees
+        n_estimators=50,  # Increased number of trees
         max_features='sqrt',  # Fraction of features per split
-        max_depth=30,  # Allow trees to grow fully (or set an appropriate limit)
-        random_state=42  # For reproducibility
+        max_depth=20,  # Allow trees to grow fully (or set an appropriate limit)
+        random_state=42,  # For reproducibility
+        bootstrap = True, # Default True
+        ccp_alpha = 0.0, # Default 0.0 
+        class_weight = None, # Default None
+        criterion = "entropy", # Default "gini"
+        max_leaf_nodes = None,
+        max_samples = None, # Default None
+        min_impurity_decrease = 0.0, # Default 0.0 
+        min_samples_leaf = 2, # Default 1
+        min_samples_split = 2, # Default 2
+        min_weight_fraction_leaf = 0.0, # Default 0.0
+        monotonic_cst = None, # Default None
+        n_jobs = None, # Default None
+        oob_score = False, # Default False
+        verbose = 0, # Default 0
+        warm_start = False # Default False
     )
 
 
