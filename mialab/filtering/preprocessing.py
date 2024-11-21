@@ -170,7 +170,7 @@ class ImageRegistration(pymia_fltr.Filter):
         
         #sitk.Show(registred_image)
         
-        print("Sucessfully finished registration")
+        #print("Sucessfully finished registration")
         return registred_image
 
     def __str__(self):
