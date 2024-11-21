@@ -4,7 +4,7 @@
 ##SBATCH --partition=cpu
 #SBATCH --time=2:00:00  # Request runtime of 1 hour
 #SBATCH --mem=48G  # Request memory
-#SBATCH --cpus-per-task=4  # Request 2 CPUs
+#SBATCH --cpus-per-task=4  # Requested number of CPUs
 
 # Activate your conda environment
 source activate mia
