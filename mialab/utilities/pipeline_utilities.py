@@ -360,3 +360,24 @@ def post_process_batch(brain_images: t.List[structure.BrainImage], segmentations
     else:
         pp_images = [post_process(img, seg, prob, **post_process_params) for img, seg, prob in param_list]
     return pp_images
+
+
+def save_classifier_params(classifier, output_dir):
+    """
+    Saves the parameters of a RandomForestClassifier to a text file and optionally plots them.
+    
+    Args:
+        classifier (RandomForestClassifier): The classifier object.
+        output_dir (str): Directory where the parameters will be saved.
+    """
+    # Get the classifier parameters
+    params = classifier.get_params()
+    
+    # Save parameters as a text file
+    params_file = os.path.join(output_dir, 'classifier_params.txt')
+    with open(params_file, 'w') as f:
+        for param, value in params.items():
+            f.write(f"{param}: {value}\n")
+    
+    return params_file
+
