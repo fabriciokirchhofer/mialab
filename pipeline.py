@@ -67,8 +67,10 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
                           'intensity_feature': True,
                           'gradient_intensity_feature': True}
 
+    multiprocess = True # Change to True on UBELIX
+
     # load images for training and pre-process
-    images = putil.pre_process_batch(crawler.data, pre_process_params, multi_process=False)
+    images = putil.pre_process_batch(crawler.data, pre_process_params, multi_process=multiprocess)
 
     # generate feature matrix and label vector
     data_train = np.concatenate([img.feature_matrix[0] for img in images])
@@ -79,14 +81,14 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
         #                                        n_estimators=1,
         #                                        max_depth=5)
     forest = sk_ensemble.RandomForestClassifier(
-        n_estimators=50,  # Increased number of trees
-        max_features='sqrt',  # Fraction of features per split
-        max_depth=20,  # Allow trees to grow fully (or set an appropriate limit)
+        n_estimators=10,  # Increased number of trees
+        max_features=images[0].feature_matrix[0].shape[1],  # Fraction of features per split
+        max_depth=50,  # Allow trees to grow fully (or set an appropriate limit)
         random_state=42,  # For reproducibility
         bootstrap = True, # Default True
         ccp_alpha = 0.0, # Default 0.0 
         class_weight = None, # Default None
-        criterion = "entropy", # Default "gini"
+        criterion = "gini", # Default "gini"
         max_leaf_nodes = None,
         max_samples = None, # Default None
         min_impurity_decrease = 0.0, # Default 0.0 
@@ -185,7 +187,7 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
     putil.save_classifier_params(classifier=forest, output_dir=result_plots)
     
     print("Generating plots...")
-    generate_plots(results_dir=result_dir, results_folder=results_folder)
+    generate_plots(results_dir=result_dir)
 
 
 if __name__ == "__main__":

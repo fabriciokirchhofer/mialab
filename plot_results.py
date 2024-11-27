@@ -6,13 +6,15 @@ import sys
 
 
 # Fabricio's version modified to call it as function in pipeline.py
-def generate_plots(results_dir, results_folder):
+def generate_plots(results_dir):
     # Construct the file path for results.csv
     file_path = os.path.join(results_dir, 'results.csv')
     
     # Load the CSV file using a semicolon as the delimiter
     print("Trying to load file:", file_path)  # Debugging line
     data = pd.read_csv(file_path, delimiter=';')
+    
+    plots_dir = os.path.join(results_dir, 'plots')
     
     # Filter out labels for plotting
     labels = ["WhiteMatter", "GreyMatter", "Hippocampus", "Amygdala", "Thalamus"]
@@ -33,10 +35,12 @@ def generate_plots(results_dir, results_folder):
         plt.title(f'{metric} per Label')
         plt.grid(True)
         
-        plot_file = os.path.join(results_dir, f"{metric}_per_label.png")
+        plot_file = os.path.join(plots_dir, f"{metric}_per_label.png")
+        print("Plot_file:", plot_file)
         plt.savefig(plot_file)
+        plt.close() # free up memory
     
-    print(f"Plots saved in {results_dir}")
+    print(f"Plots saved in {results_dir}/plots")
 
 # Original to Fabios version
 def main(sub_directory):
