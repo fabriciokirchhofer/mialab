@@ -59,9 +59,9 @@ if __name__ == "__main__":
     # Example usage
     mia_result_dir = "mialab/mia-result/"  # Path to the mia-result folder
     metric = "DICE"  # Evaluation metric (e.g., 'DICE', 'JACRD')
-    brain_region = "WhiteMatter"  # Select brain region: WhiteMatter, GreyMatter, Hippocampus, Amygdala, Thalamus
+    brain_region = "GreyMatter"  # Select brain region: WhiteMatter, GreyMatter, Hippocampus, Amygdala, Thalamus
     rank = 1  # Rank to select (e.g., 1 for best, 2 for second best)
-    save = True # If true, saved to folder 'ranking' in mia-results, otherwise just printed 
+    save = False # If true, saved to folder 'ranking' in mia-results, otherwise just printed 
 
     # Get the ranked results
     ranked_results = find_best_results(mia_result_dir=mia_result_dir, 
