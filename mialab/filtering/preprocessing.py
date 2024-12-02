@@ -156,13 +156,32 @@ class ImageRegistration(pymia_fltr.Filter):
         # print("atlas", type(atlas)) # SimpleITK.SimpleITK.Image
         # print("transform", transform) # SimpleITK.SimpleITK.Transform
         # print("is_ground_truth", type(is_ground_truth)) # bool
-               
+        SIZE = image.GetSize()
+        print("image.GetSize():", SIZE)       
         registred_image = sitk.Resample(
             image1=image,
-            referenceImage=atlas,
+            referenceImage=image,
             transform=transform,
             interpolator=interpolator
         )
+        
+        # Fabricio experiment - it runs but registration is off
+        # output_size = image.GetSize()
+        # output_spacing = image.GetSpacing()
+        # output_origin = image.GetOrigin()
+        # output_direction = image.GetDirection()
+
+        # registred_image = sitk.Resample(
+        #     image1=image,
+        #     size=output_size,  # Explicitly set output size to match input image
+        #     transform=transform,
+        #     outputOrigin=output_origin,
+        #     outputSpacing=output_spacing,
+        #     outputDirection=output_direction,
+        #     interpolator=interpolator
+        # )
+        SIZE_AFTERWARDS = registred_image.GetSize()
+        print("SIZE_AFTERWARDS:", SIZE_AFTERWARDS) 
                
         # note: if you are interested in registration, and want to test it, have a look at
         # pymia.filtering.registration.MultiModalRegistration. Think about the type of registration, i.e.

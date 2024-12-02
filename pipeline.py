@@ -73,6 +73,10 @@ def main(result_dir: str, data_atlas_dir: str, data_train_dir: str, data_test_di
 
     # generate feature matrix and label vector
     data_train = np.concatenate([img.feature_matrix[0] for img in images])
+    print("data_train[0].shape:", data_train[0].shape)
+    print("data_train[0][0].shape:", data_train[0][0].shape)
+    print("data_train[1].shape:", data_train[1].shape)
+    print("data_train[1][0].shape:", data_train[1][0].shape)
     labels_train = np.concatenate([img.feature_matrix[1] for img in images]).squeeze()
 
     warnings.warn('Random forest parameters not properly set --> Julien tried something out')
