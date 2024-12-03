@@ -196,11 +196,9 @@ class Resample(Transform):
 
     def __call__(self, img: sitk.Image) -> sitk.Image:
         size, spacing, origin, direction = img.GetSize(), img.GetSpacing(), img.GetOrigin(), img.GetDirection()
-
         scale = [ns / s for ns, s in zip(self.new_spacing, spacing)]
         new_size = [int(sz/sc) for sz, sc in zip(size, scale)]
         # new_origin = [o / sc for o, sc in zip(origin, scale)]
-
         resampler = sitk.ResampleImageFilter()
         resampler.SetSize(new_size)
         # resampler.SetTransform(sitk.Transform())
