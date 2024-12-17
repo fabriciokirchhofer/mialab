@@ -1,69 +1,95 @@
+import os
+import csv
 import SimpleITK as sitk
 import numpy as np
-import matplotlib.pyplot as plt
-from skimage.measure import regionprops, label, perimeter
-import skimage
-import skimage.measure
-# Load the NIfTI file
-file_path = r"C:\GitRepos\MIALAB\mialab\data\test\117122\labels_native.nii.gz"
+from skimage.measure import marching_cubes, mesh_surface_area, euler_number
 
-try:
-    # Load the image using SimpleITK
-    image = sitk.ReadImage(file_path)
-    image_array = sitk.GetArrayFromImage(image)
+# Define the test directory containing subdirectories with volumes
+base_dir = r"C:\GitRepos\MedImgLab\mialab\mialab\data\test"
+output_csv = r"C:\GitRepos\MedImgLab\mialab\output_metrics.csv"
 
-    print("File loaded successfully!")
-    print(f"Image shape: {image_array.shape}")
-except Exception as e:
-    print(f"Error loading file: {e}")
-    exit()
+# Define voxel spacing (update this if actual spacing is known)
+spacing = (1.0, 1.0, 1.0)  # Default isotropic spacing
 
-label_0_mask = (image_array == 0).astype(np.uint8)
-label_1_mask = (image_array == 1).astype(np.uint8)
-label_2_mask = (image_array == 2).astype(np.uint8)
-label_3_mask = (image_array == 3).astype(np.uint8)
-label_4_mask = (image_array == 4).astype(np.uint8)
-label_5_mask = (image_array == 5).astype(np.uint8)
+# Define label name mapping
+label_names = {
+    0: "background",
+    1: "whitematter",
+    2: "grey matter",
+    3: "hippocampus",
+    4: "amygdala",
+    5: "thalamus",
+}
 
-labeled_image_2 = label(label_2_mask)
-properties = regionprops(labeled_image_2)
-for region in properties:
-    # Basic properties
-    region.
-    area = region.area
-    #perimeter = region.perimeter
-    bbox = region.bbox
-    #eccentricity = region.eccentricity
+# Functions to calculate metrics
+def compute_euler_characteristic(label_mask):
+    """Compute the Euler characteristic of a 3D binary label mask."""
+    return euler_number(label_mask)
 
-    print(f"Label 2 - Area: {area}")
-    print(f"Label 2 - Bounding Box: {bbox}")
+def compute_surface_area_to_volume_ratio(label_mask, spacing):
+    """Compute the Surface Area to Volume Ratio (SA:V) of a 3D binary label mask."""
+    voxel_volume = np.prod(spacing)
+    volume = np.sum(label_mask) * voxel_volume
 
+    verts, faces, _, _ = marching_cubes(label_mask, level=0.5, spacing=spacing)
+    surface_area = mesh_surface_area(verts, faces)
 
+    sa_to_vol_ratio = surface_area / volume
+    return sa_to_vol_ratio, surface_area, volume
 
+def compute_sphericity(label_mask, spacing):
+    """Compute the sphericity of a 3D binary label mask."""
+    sa_to_vol_ratio, surface_area, volume = compute_surface_area_to_volume_ratio(label_mask, spacing)
+    sphericity = (np.pi**(1/3) * (6 * volume)**(2/3)) / surface_area
+    return sphericity, surface_area, volume
 
+# Prepare the CSV file
+with open(output_csv, mode="w", newline="") as csv_file:
+    fieldnames = ["Filename", "Label", "Euler Characteristic", "Surface Area", "Volume", "SA:V Ratio", "Sphericity"]
+    writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+    writer.writeheader()
 
+    # Process all volumes in the test directory
+    for subdir, _, files in os.walk(base_dir):
+        for file in files:
+            if file == "labels_native.nii.gz" and "resampled" not in subdir:  # Ignore resampled files
+                volume_path = os.path.join(subdir, file)
+                filename = os.path.relpath(volume_path, base_dir)  # Relative file path
 
+                print(f"Processing: {filename}")
 
-# Loop through each slice
-def complexity(label_mask):
-    slices_with_perimeter = 0
-    total_perimeter = 0.0
-    for i in range(label_mask.shape[0]):  # Iterate over slices along the Z-axis
-        slice_mask = label_mask[i, :, :]  # Extract the 2D slice
-        slice_perimeter = perimeter(slice_mask, neighborhood=4)  # Compute perimeter for the slice
-        if slice_perimeter > 1:
-            slices_with_perimeter += 1       
-        total_perimeter += slice_perimeter  # Accumulate the perimeter
-    # Calculate the area of the binary mask
-    total_area = np.sum(label_2_mask)
-    print(total_area)
+                # Load the NIfTI file
+                try:
+                    image = sitk.ReadImage(volume_path)
+                    image_array = sitk.GetArrayFromImage(image)
+                    print(f"  File loaded successfully! Shape: {image_array.shape}")
+                except Exception as e:
+                    print(f"  Error loading file: {e}")
+                    continue
 
-    # Compute complexity for the 3D object
-    avg_perimeter = total_perimeter / slices_with_perimeter
-    complexity = (avg_perimeter ** 2) / (4 * np.pi * total_area)
-    # Output results
-    print(f"Total Area: {total_area}")
-    print(f"Total Perimeter: {total_perimeter}")
-    print(f"Complexity: {complexity}")
+                # Iterate over unique labels
+                unique_labels = np.unique(image_array)
+                for label_id in unique_labels:
+                    if label_id not in label_names:  # Skip unknown labels
+                        continue
 
-complexity(label_5_mask)
+                    # Create binary mask for the current label
+                    label_mask = (image_array == label_id).astype(np.uint8)
+
+                    # Compute metrics
+                    euler_num = compute_euler_characteristic(label_mask)
+                    sa_to_vol_ratio, surface_area, volume = compute_surface_area_to_volume_ratio(label_mask, spacing)
+                    sphericity, _, _ = compute_sphericity(label_mask, spacing)
+
+                    # Write results to the CSV file
+                    writer.writerow({
+                        "Filename": filename,
+                        "Label": label_names[label_id],
+                        "Euler Characteristic": euler_num,
+                        "Surface Area": f"{surface_area:.2f}",
+                        "Volume": f"{volume:.2f}",
+                        "SA:V Ratio": f"{sa_to_vol_ratio:.4f}",
+                        "Sphericity": f"{sphericity:.4f}",
+                    })
+
+                print()
