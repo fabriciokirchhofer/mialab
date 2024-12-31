@@ -129,3 +129,18 @@ with open(output_csv, mode="w", newline="") as csv_file:
 
 # Generate the boxplots
 create_boxplots(output_csv)
+# Compute and print mean values for each label and metric
+# Load the CSV file into a DataFrame
+metrics_df = pd.read_csv(output_csv)
+
+# Convert numerical columns to floats for calculations
+numeric_cols = ["Euler Characteristic", "Surface Area", "Volume", "SA:V Ratio", "Sphericity"]
+for col in numeric_cols:
+    metrics_df[col] = pd.to_numeric(metrics_df[col], errors="coerce")
+
+# Group by Label and calculate mean for each metric
+mean_values = metrics_df.groupby("Label")[numeric_cols].mean()
+
+# Print the mean values with explicit label
+print("\nMean values for each label and metric:")
+print(mean_values.reset_index().to_string(index=False))
